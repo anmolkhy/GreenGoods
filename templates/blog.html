@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block Title %} Blog {% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Signika&display=swap" rel="stylesheet">
+{% endblock %}
+{% block content %}
+    <main>
+        <div class="Hero" style="background-image: linear-gradient(
+          rgba(0, 0, 0, 0.3),
+          rgba(0, 0, 0, 0.4)
+        ),url('{% static 'assets/blog/img4.jpg' %}');">
+            <div class="content11">
+                <h1>The Eco-Conscious Corner</h1>
+            </div>
+        </div>
+        <section id="blog-banners">
+          <div class="picks">Our Latest Picks...</div>
+          <section class="container">
+            <div class="card_outer">
+              <div class="card left-card" id="card1" style="background-image:url('{% static 'assets/blog/img1.jpg'%}')">
+                <div class="content">
+                  <h2 class="title">Organic Clothes: Way to Sustainability</h2>
+                  <a href="#Blog1"><button class="btn">Read More</button></a>
+                </div>
+              </div>
+              <div class="card right-card"  style="background-image:url('{% static 'assets/blog/img2.jpg'%}')">
+                <div class="content">
+                  <h2 class="title">Embracing Mindfulness: A Journey to Inner Peace</h2>
+                  <a href="#Blog2"><button class="btn">Read More</button></a>
+                </div>
+              </div>
+              <div class="card right-card"  style="background-image:url('{% static 'assets/blog/img3.jpg'%}')">
+                <div class="content">
+                  <h2 class="title">People Using Wooden Plates and Spoons in Wedding</h2>
+                  <a href="#Blog3"><button class="btn">Read More</button></a>
+                </div>
+            </div>
+          </section>
+      </section>
+      <section id="Main-Blog">
+          <div id="Blog1" class="blog-item">
+              <h1 class="Heading1">Organic Clothes: Way to Sustainability</h1>
+              <p>In recent years, there has been a growing awareness of the environmental impact of the fashion industry. From the production of raw materials to the disposal of clothing, the fashion industry has been a significant contributor to pollution and waste. As a result, many consumers are now seeking sustainable and eco-friendly alternatives, and organic clothes have emerged as a promising solution.</p>
+                <p>Organic clothes are made from materials that are grown and processed without the use of harmful chemicals, pesticides, and synthetic fertilizers. These materials include organic cotton, hemp, bamboo, and other natural fibers. By opting for organic clothes, consumers can significantly reduce their carbon footprint and contribute to a cleaner and healthier planet.</p>
+                <p>One of the key benefits of organic clothes is their minimal impact on the environment. Conventional cotton farming, for example, is known to be one of the most pesticide-intensive agricultural practices, leading to soil degradation and water pollution. On the other hand, organic cotton farming promotes biodiversity, conserves water, and improves soil health.</p>
+                <p>In addition to environmental benefits, organic clothes also offer advantages for personal health and well-being. The absence of harmful chemicals in the manufacturing process means that organic clothes are gentler on the skin, making them an excellent choice for those with sensitive skin or allergies.</p>  
+              <h4><i> -Anmol Khy, Product Manager</i></h4>               
+          </div>
+          <div id="Blog2"class="blog-item">
+              <h1 class="Heading1">Embracing Mindfulness: A Journey to Inner Peace</h1>
+              <p>In today's fast-paced world, finding moments of stillness and tranquility can seem like a distant dream. However, amidst the chaos, mindfulness offers a guiding light towards inner peace. By immersing ourselves in the present moment and observing our thoughts without judgment, we embark on a transformative journey. Mindfulness encourages us to embrace each experience with curiosity, fostering a deeper connection with ourselves and the world around us. As we tune into our breath and let go of distractions, we pave the way for self-awareness, improved focus, and reduced stress. Let us embark on this beautiful quest of mindfulness, where even the tiniest pauses can lead to profound inner bliss.</p>
+              <h4><i> -Ankit Mishra, Product Manager</i></h4>      
+          </div>
+          <div id="Blog3" class="blog-item">
+              <h1 class="Heading1" >People Using Wooden Plates and Spoons in Wedding</h1>
+                <p>In recent times, there has been a noticeable shift towards eco-friendly and sustainable practices, even in traditional events like weddings. One such trend gaining popularity is the use of wooden plates and spoons during wedding ceremonies and receptions. Couples and event planners are now opting for these biodegradable and compostable alternatives to reduce plastic waste and minimize their environmental impact.</p>
+                <p>Wooden plates and spoons offer a natural and rustic charm to wedding setups, adding a touch of elegance and uniqueness to the dining experience. These eco-friendly alternatives are made from renewable resources, making them an environmentally responsible choice. As they are free from harmful chemicals and toxins, they are also safe for both humans and the planet.</p>
+                <p>By choosing wooden plates and spoons, couples can showcase their commitment to sustainability and inspire others to adopt greener practices in their celebrations. It reflects a conscious effort to reduce plastic usage, which has been a significant contributor to pollution and environmental degradation.</p>              
+              <h4><i> -Yug Harlalka</i></h4>   
+          </div>
+      </section>
+    </main>
+{% endblock %}
+{% block js %}
+    <script src="{% static 'js/blog.js' %}"></script>
+{% endblock %}

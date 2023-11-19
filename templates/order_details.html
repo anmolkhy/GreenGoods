@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load custom_filters %}
+{% block Title %} Order Details {% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/cart_style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Signika&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/99fd219b60.js" crossorigin="anonymous"></script>
+{% endblock %}
+{% block content%}
+    <div id="cart" class="section-p2">
+        <table width="100%">
+            <thead>
+                <tr>
+                    <td>Image</td>
+                    <td>Product</td>
+                    <td>Price</td>
+                    <td>Quantity</td>
+                    <td>Subtotal</td>
+                </tr>
+            </thead>
+            <tbody>
+                <form method="POST" name="cart">
+                    {% csrf_token %}
+                {% for item in items%}
+                <tr>
+                    <td><img src="{{item.item.image.url}}" alt="" class="image"></td>
+                    <td class="product-title">{{item.item.title}}</td>
+                    <td class="product-price" id="price{{item.id}}">{{item.item.discount_price}}0</td>
+                    <td><input type="text" id="product-quantity{{item.id}}" name="{{item.id}}" value="{{item.quantity}}"></td>
+                    {% with item.item.discount_price|multiply:item.quantity as price %}
+                    <td class="product-total" id="total{{item.id}}">Rs. {{price}}</td>
+                    {% endwith %}
+                </tr>
+                {% endfor %}
+                </form>
+            </tbody>
+        </table>
+    </div>
+
+    <section id="cart-add" class="section-p1">
+        <div class="subtotal">
+            <h3>Cart Total</h3>
+            <table>
+                <tr>
+                    <td class="tot">Cart Subtotal</td>
+                    <td class="tot2" id="tot21">Rs. {{order.price}}0</td>
+                </tr>
+                <tr>
+                    <td>Shipping</td>
+                    <td>Free</td>
+                </tr>
+                <tr>
+                    <td><strong>Total</strong></td>
+                    <td class="tot2" id="tot22"><strong>Rs. {{order.price}}0</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Order Date</strong></td>
+                    <td class="tot2" id="tot22"><strong>{{order.ordered_date}}</strong></td>
+                </tr>
+            </table>
+        </div>
+    </section>
+{% endblock %}
+{% block js %}
+    <script src="{% static 'js/cart.js' %}"></script>
+{% endblock %}

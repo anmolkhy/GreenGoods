@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load custom_filters %}
+{% block Title %} Order Details {% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/cart_style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Signika&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/99fd219b60.js" crossorigin="anonymous"></script>
+{% endblock %}
+{% block content%}
+    <div id="cart" class="section-p2">
+        <table width="100%">
+            <thead>
+                <tr>
+                    <td>Sr. No</td>
+                    <td>Date</td>
+                    <td>Price</td>
+                    <td>View</td>
+                </tr>
+            </thead>
+            <tbody>
+                <form method="POST" name="cart">
+                    {% csrf_token %}
+                {% for order in orders%}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td class="product-title">{{order.ordered_date}}</td>
+                    <td class="product-price" id="price{{item.id}}">{{order.price}}0</td>
+                    <td class="product-quantity"><a href="{% url 'orderdetail' order.id %}"><i class="fas fa-eye"></i></a></td>
+                </tr>
+                {% endfor %}
+                </form>
+            </tbody>
+        </table>
+    </div>
+
+    <section id="cart-add" class="section-p1">
+        <div class="subtotal">
+            <h3>Total</h3>
+            <table>
+                <tr>
+                    <td><strong>Total</strong></td>
+                    <td class="tot2" id="tot22"><strong>Rs. {{sum}}0</strong></td>
+                </tr>
+            </table>
+        </div>
+    </section>
+{% endblock %}
+{% block js %}
+    <script src="{% static 'js/cart.js' %}"></script>
+{% endblock %}

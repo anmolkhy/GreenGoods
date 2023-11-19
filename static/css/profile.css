@@ -1,0 +1,19 @@
+.main-wrapper{
+    width: 100%;
+}
+.content{
+    width: 90%;
+    margin: 1rem auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+.left-side, .right-side{
+    width: 40%;
+    padding: 0 1rem;
+}
+
+@media screen and (max-width: 768px){
+    .left-side, .right-side{
+        width: 100%;
+    }
+}

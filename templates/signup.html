@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block Title %}Signup{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
+{% block content %}
+<div class="login">
+    <div class="login-container">
+        <div class="login-form">
+            <div class="image">
+                <center>
+                <img src="{% static 'assets/logo.png' %}" alt="logo">
+                </center>
+            </div>
+            <h2>Login</h2>
+            <form action="#" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Confirm Password:</label>
+                    <input type="confirmpassword" id="confirmpassword" name="confirmpassword" required>
+                </div>
+                <div class="form-group">
+                    <center>
+                        <strong>
+                            {{message}}
+                        </strong>
+                    </center>   
+                </div>
+                <center>
+                    <button type="submit" class="custom-btn"><span>Sign Up</span></button>
+                </center>
+            </form>
+            <div class="login-options">
+                <hr>
+                <p>Or Sign Up with:</p>
+                <center>
+                <div class="social-icons">
+                    <!-- <a href="{% url 'social:begin' "facebook" %}" class="facebook-icon"><img src="{% static 'assets/logos/facebook.png' %}" alt="Facebook"></a> -->
+                    <a href="{% url 'social:begin' "google-oauth2" %}" class="google-icon"><img src="{% static 'assets/logos/google.png' %}" alt="Google"></a>
+                </div>
+            </center>
+            </div>
+        </div>
+        <div class="login-image">
+            <iframe src="https://lottie.host/?file=c7b1c240-478e-4431-9f8d-1f944de6506e/nZ9XH2CCK8.json"></iframe>
+        </div>
+    </div>
+</div>
+<lottie-player style="margin: auto auto; width: 30vw;" src="{% static 'assets/animations/login.lottie' %}" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></lottie-player>
+{% endblock %}
+{% block js %}
+<script src="{https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js}"></script>
+{% endblock %}

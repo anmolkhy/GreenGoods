@@ -1,0 +1,180 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block Title %} Home {% endblock %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+<link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+{% endblock %}
+{% block content %}
+<div class="photo-slider">
+    <div class="body swiper">
+          <ul class="swiper-wrapper">
+              <li class="swiper-slide">
+                  <img src="{% static 'assets/banner/1.jpg'%}" alt="">
+              </li>
+              <li class="swiper-slide">
+                  <img src="{% static 'assets/banner/2.jpg'%}" alt="">
+              </li>
+              <li class="swiper-slide">
+                  <img src="{% static 'assets/banner/3.jpg'%}" alt="">
+              </li>
+              <li class="swiper-slide">
+                  <img src="{% static 'assets/banner/4.jpg'%}" alt="">
+              </li> 
+          </ul>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+    </div>
+</div>
+<div class="about-section">
+  <div class="container1">
+    <div class="about-content">
+      <div class="about-photo">
+        <span id="typing-text"></span><span id="cursor"></span>
+      </div>
+      <div class="about-text">
+        <h2>Welcome to GreenGoods.</h2>
+        <p>
+          Welcome to Greengoods, your one-stop destination for all things eco-friendly and sustainable! At Greengoods, we believe that small changes can make a big impact on our planet. Our mission is to provide you with a curated selection of high-quality, eco-conscious products that promote a greener, more sustainable lifestyle. By choosing to shop at Greengoods, you can feel confident that you're making a positive difference for the environment and future generations. We work with eco-conscious suppliers and artisans who share our passion for sustainability, and many of our products are locally sourced to minimize our carbon footprint.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="stats">
+  <div class="stats-content">
+    <div class="stats-item">
+      <div class="left-cont">
+        <img src="{% static 'assets/trees.png'%}" alt="">
+      </div>
+      <div class="right-cont">
+        <h1 class="stats-number">650</h1>
+        <h1>+</h1>
+        <p>Trees Saved</p>
+      </div>
+    </div>
+    <div class="stats-item">
+      <div class="left-cont">
+        <img src="{% static 'assets/customer.png'%}" alt="">
+      </div>
+      <div class="right-cont">
+        <h1 class="stats-number">1000</h1>
+        <h1>+</h1>
+        <p>Happy Customers</p>
+      </div>
+    </div>
+    <div class="stats-item">
+      <div class="left-cont">
+        <img src="{% static 'assets/leaf.png'%}" alt="">
+      </div>
+      <div class="right-cont">
+        <h1 class="stats-number">0</h1>
+        <p>Carbon Emission</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="categories">
+  <div class="container1">
+    <h1>Categories</h1>
+    <div class="cont-wrapper">
+      <!-- <div class="cat-img">
+        <img src="{% static 'assets/categories/beauty.jpg'%}" alt="">
+        <h2>Beauty & Skin Care</h2>
+      </div> -->
+      <div class="cat-img">
+       <a href="{% url 'clothing' %}"> <img src="{% static 'assets/categories/clothing.jpg'%}" alt=""> </a>
+        <h2>Clothing</h2>
+      </div>
+      <div class="cat-img">
+        <a href="{% url 'homekitchen' %}"> <img src="{% static 'assets/categories/kitchen.jpg'%}" alt=""> </a>
+        <h2>Home & Kitchen</h2>
+      </div>
+      <div class="cat-img">
+        <a href="{% url 'accessories' %}"><img src="{% static 'assets/categories/accessories.jpg'%}" alt=""> </a>
+        <h2>Accessories</h2>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="certified">
+  <div class="container1">
+    <div class="cert-wrapper">
+      <div class="cert-img">
+        <i class="bi bi-patch-check"></i>
+        <p>Certified</p>
+      </div>
+      <div class="cert-text">
+        <p>
+          We are a certified company that provides you with the best quality
+          products.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="page" class="site">
+  <div class="container3">
+    <div class="testi">
+      <div class="head">
+        <h3>Testimonials</h3>
+      </div>
+        <div class="body swiper">
+          <ul class="swiper-wrapper">
+              <li class="swiper-slide">
+                <div class="wrapper1">
+                  <div class="thumbnail">
+                    <img src="{% static 'assets/testimonials/woman1.png'%}" alt="" />
+                  </div>
+                  <div class="aside">
+                    <p><br/>I was skeptical about trying a new product, but I'm so glad I did! The XYZ face cream worked wonders on my skin. It feels smoother and looks more radiant than ever before. I've finally found my holy grail skincare product<br/></p>
+                    <div class="name">
+                      <h4>Sarah</h4>
+                      <p>Zara</p>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="swiper-slide">
+                <div class="wrapper1">
+                  <div class="thumbnail">
+                    <img src="{% static 'assets/testimonials/man1.png'%}" alt="" />
+                  </div>
+                  <div class="aside">
+                    <p><br/>I've been struggling with anxiety for years, and nothing seemed to help. Then, I discovered the ABC meditation app, and it has been a game-changer. The guided meditations are so calming, and I feel more centered and in control of my emotions. Thank you for creating such a fantastic app!<br/></p>
+                    <div class="name">
+                      <h4>Ken</h4>
+                      <p>Mattel</p>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="swiper-slide">
+                <div class="wrapper1">
+                  <div class="thumbnail">
+                    <img src="{% static 'assets/testimonials/woman2.png'%}" alt="" />
+                  </div>
+                  <div class="aside">
+                    <p><br/>I can't believe the difference after using the LMN fitness program for just a few weeks. It's challenging yet rewarding. I've already lost weight and gained muscle. The workouts are fun and varied, which keeps me motivated to stick with it. Highly recommend this program to anyone looking to get in shape!<br/></p>
+                    <div class="name">
+                      <h4>Ashley</h4>
+                      <p>Chanel</p>
+                    </div>
+                  </div>
+                </div>
+              </li>
+          </ul>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block js %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+<script src="{% static 'js/index.js' %}"></script>
+{% endblock %}

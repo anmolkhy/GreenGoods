@@ -1,0 +1,375 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block Title %} Product View {% endblock %}
+{% block head %}
+    <meta name="description" content="Product Details page." />
+    <meta name="robots" content="index,follow" />
+    <link rel="stylesheet" href="{% static 'css/product_view_page.css' %}" />
+    <script
+      src="https://kit.fontawesome.com/dbed6b6114.js"
+      crossorigin="anonymous"
+    ></script>
+{% endblock %}
+{% block content %}
+    <div class="small-container container">
+      <div class="row">
+        <div class="col2">
+          <img style="height: 530px" src="{{product.image.url}}" id="productimg" />
+
+          <div class="small-image-box">
+            <img src="{{product.image.url}}" class="smallimg" />
+            <img src="{{product.image.url}}" class="smallimg" />
+            <img src="{{product.image.url}}" class="smallimg" />
+            <img src="{{product.image.url}}" class="smallimg" />
+          </div>
+        </div>
+        <div class="col2 col2-1">
+          <h1 class="m">{{product.title}}</h1>
+          <p class="a1">
+            {{product.description}}
+          </p>
+          <div class="rating">
+            <p class="rate">4</p>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <p class="rate a2">|</p>
+            <p class="rate">302 ratings</p>
+          </div>
+          <hr />
+          <div class="money">
+            <p class="cancel">{{product.price}}</p>
+            <h4 class="a3">{{product.discount_price}}</h4>
+            <p class="a4">(35% OFF)</p>
+            <p class="a5" style="color: green">inclusive of all taxes</p>
+          </div>
+          <h1 class="a6">Quantity :</h1>
+          <form method="POST">
+            {% csrf_token %}
+          <div class="quantity-box">
+            <div class="quantity-btn" onclick="decreaseQuantity()">-</div>
+            <input id="quantity-display" name="qty" value="1"></input>
+            <div class="quantity-btn" onclick="increaseQuantity()">+</div>
+          </div>
+          <!--buy-->
+          <div class="buy">
+            <button type="submit" class="a7">Add to Cart</button>
+          </div>
+        </form>
+          <!--offer-->
+          <hr />
+          <h1 class="a10">Features</h1>
+          <ul>
+            <li><i class="bi bi-stars"></i> &nbsp 100% Original Products </li>
+            <li><i class="bi bi-cash-stack"></i> &nbsp Pay on delivery might be available </li>
+            <li><i class="bi bi-truck"></i> &nbsp Easy 14 days returns and exchanges </li>
+          </ul>
+          <div class="offer">
+            <p class="a9">Offer</p>
+            <p>BUY 2 silk ajrakh saree & GET 1 saree FREE.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--INFO PART-->
+      <div class="tab">
+        <ul class="tab-box">
+          <li class="tab_btn active" style="color: black">Specification</li>
+          <li class="tab_btn" style="color: black">Description</li>
+          <div class="line"></div>
+        </ul>
+        <div class="content_box">
+          <div class="content active">
+            <table>
+              <tr>
+                <td class="boldd">Colour</td>
+                <td>White</td>
+              </tr>
+              <tr>
+                <td class="boldd">Product Dimensions</td>
+                <td>6W x 12H Centimeterss</td>
+              </tr>
+              <tr>
+                <td class="boldd">Item Weight</td>
+                <td>130 Grams</td>
+              </tr>
+              <tr>
+                <td class="boldd">Operating Time</td>
+                <td>30 Hours</td>
+              </tr>
+              <tr>
+                <td class="boldd">Item Form</td>
+                <td>Liquid</td>
+              </tr>
+              <tr>
+                <td class="boldd">Special Features</td>
+                <td>Scented,Smokeless</td>
+              </tr>
+              <tr>
+                <td class="boldd">Material</td>
+                <td>Soy Wax</td>
+              </tr>
+              <tr>
+                <td class="boldd">Country of Origin</td>
+                <td>India</td>
+              </tr>
+            </table>
+          </div>
+          <div class="content">
+            <p class="descrip">
+              Planet friendly hand poured premium soy wax candles. These
+              pleasant-scented candles would for sure fill your life with a lot
+              of joy. Eucalyptus is a purifying, cleansing, and clarifying scent
+              that can improve air quality. Burning a eucalyptus candle can help
+              to refresh and cleanse the air. In aromatherapy this scent is also
+              known to be beneficial for the respiratory system and to alleviate
+              breathing problems, clogged airways and headaches .One of our core
+              values is using eco-friendly ingredients. Our candles are crafted
+              from 100% natural soy wax, a renewable resource that is both
+              biodegradable and non-toxic. Unlike traditional paraffin wax, soy
+              wax burns cleanly, ensuring that no harmful chemicals or soot are
+              released into the air when you enjoy our candles. Why we are
+              sustainable? Used beer bottles make up for a huge chunk of
+              disposed waste .Supporting local communities is also a fundamental
+              part of our ethos. We collaborate with local artisans and
+              suppliers during our production process, fostering a sense of
+              community and promoting fair trade practices. At Vapasee, we are
+              doing good to our planet, by converting disposed bottles into
+              absolutely adorable scented candles. Go bright. Be right.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    <hr />
+
+    <div class="ratingnreview">
+      <div class="rate1">
+        <h2 class="rateh1">Ratings</h2>
+        <div class="star4">
+          <p>4</p>
+          <p><span class="star">&#9733;</span></p>
+        </div>
+        <p class="count">302 Confirmed Customers</p>
+        <img class="rate-img" src="{% static 'assets/product/review.png' %}" alt="" />
+      </div>
+
+      <div class="rate2">
+        <h1 class="cr">Customer Reviews</h1>
+
+        <div class="review">
+          <p>5 <span class="star-1">&#9733;</span></p>
+          <p>
+            Colour: White | Size: Medium | Style Name: 220 AmbitiousPattern |
+            Name: Upcycled Beer Bottle Eucalyptus Candle
+          </p>
+          <p class="verified">Verified Purchase</p>
+          <p>
+            This camisole is lovely - soft, comfy, well structured, and affordable for being 95% organic cotton. I was a little disappointed in there being small, plastic clips within the recyclable packaging though.
+          </p>
+          <p class="name">Divya | 26 May 2023</p>
+        </div>
+        <hr />
+        <div class="review">
+          <p>2 <span class="star-2">&#9733;</span></p>
+          <p>
+            Colour: White | Size: Medium | Style Name: 220 AmbitiousPattern |
+            Name: Upcycled Beer Bottle Eucalyptus Candle
+          </p>
+          <p class="verified">Verified Purchase</p>
+          <p>
+            Long lasting and smells great!I love this brand - the candles emit a scent even when it's not burning (if you take the lid off) and it has a really long burn time. The scent covers up unwanted smells in rooms but isn't overwhelming which I love.
+          </p>
+          <p class="name">Divya| 26 May 2023</p>
+        </div>
+        <hr />
+        <div class="review">
+          <p>1 <span class="star-3">&#9733;</span></p>
+          <p>
+            Colour: White | Size: Medium | Style Name: 220 AmbitiousPattern |
+            Name: Upcycled Beer Bottle Eucalyptus Candle
+          </p>
+          <p class="verified">Verified Purchase</p>
+          <p>
+           Long lasting and smells great! jar with hot water and oil and reuse them as succulent holders or to keep my loose leaf tea in which is awesome.
+          </p>
+          <p class="name">Divya | 26 May 2023</p>
+        </div>
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="products">
+      <div class="container">
+        <h1 class="lg-title">Recommending to shop more</h1>
+        <p class="text-light">Best products to buy at your fingertips.</p>
+
+        <div class="product-items">
+          <!-- single product -->
+          <div class="product">
+            <div class="product-content">
+              <div class="product-img">
+                <img src="{% static 'assets/accessories/a8.jpg' %}" alt="product image" />
+              </div>
+              <div class="product-btns">
+                <button type="button" class="btn-cart">add to cart</button>
+                <button type="button" class="btn-buy">
+                  <a href="">buy now</a>
+                  <span><i class="fas fa-shopping-cart"></i></span>
+                </button>
+              </div>
+            </div>
+
+            <div class="product-info">
+              <div class="product-info-top">
+                <h2 class="sm-title">Accessories</h2>
+                <div class="rating">
+                  <span><i class="fas fa-star"></i></span>
+                  <span><i class="fas fa-star"></i></span>
+                  <span><i class="fas fa-star"></i></span>
+                  <span><i class="fas fa-star"></i></span>
+                  <span><i class="far fa-star"></i></span>
+                </div>
+              </div>
+              <a href="#" class="product-name">Wooden Vase Handcrafted</a>
+              <p class="product-price">$ 150.00</p>
+              <p class="product-price">$ 133.00</p>
+            </div>
+
+            <div class="off-info">
+              <h2 class="sm-title">25% off</h2>
+            </div>
+          </div>
+          <!-- end of single product -->
+          <!-- single product -->
+          <div class="product">
+            <div class="product-content">
+              <div class="product-img">
+                <img
+                  src="{% static 'assets/beauty/b7.webp' %}"
+                  alt="product image"
+                />
+              </div>
+              <div class="product-btns">
+                <button type="button" class="btn-cart">add to cart</button>
+                <button type="button" class="btn-buy">
+                  <a
+                    href=""
+                    >buy now</a
+                  >
+                  <span><i class="fas fa-shopping-cart"></i></span>
+                </button>
+              </div>
+            </div>
+
+            <div class="product-info">
+              <div class="product-info-top">
+                <h2 class="sm-title">Beauty and Skin Care</h2>
+                <div class="rating">
+                  <span><i class="fas fa-star"></i></span>
+                  <span><i class="fas fa-star"></i></span>
+                  <span><i class="fas fa-star"></i></span>
+                  <span><i class="fas fa-star"></i></span>
+                  <span><i class="far fa-star"></i></span>
+                </div>
+              </div>
+              <a href="#" class="product-name">Sandal Face with Concentrate</a>
+              <p class="product-price">$ 150.00</p>
+              <p class="product-price">$ 133.00</p>
+            </div>
+          </div>
+          <!-- end of single product -->
+          <!-- single product -->
+          <div class="product">
+            <div class="product-content">
+              <div class="product-img">
+                <img
+                  src="{% static 'assets/homeandkitchen/h4.webp' %}"
+                  alt="product image"
+                />
+              </div>
+              <div class="product-btns">
+                <button type="button" class="btn-cart">add to cart</button>
+                <button type="button" class="btn-buy">
+                  <a
+                    href=""
+                    >buy now</a
+                  >
+                  <span><i class="fas fa-shopping-cart"></i></span>
+                </button>
+              </div>
+            </div>
+
+            <div class="product-info">
+              <div class="product-info-top">
+                <h2 class="sm-title">Home and Kitchen</h2>
+                <div class="rating">
+                  <span><i class="fas fa-star"></i></span>
+                  <span><i class="fas fa-star"></i></span>
+                  <span><i class="fas fa-star"></i></span>
+                  <span><i class="fas fa-star"></i></span>
+                  <span><i class="far fa-star"></i></span>
+                </div>
+              </div>
+              <a href="#" class="product-name"
+                >Handcrafted terracotta dahi dewangi curd setter</a
+              >
+              <p class="product-price">$ 150.00</p>
+              <p class="product-price">$ 133.00</p>
+            </div>
+          </div>
+          <!-- end of single product -->
+          <!-- single product -->
+          <div class="product">
+            <div class="product-content">
+              <div class="product-img">
+                <img
+                  src="{% static 'assets/homeandkitchen/h8.webp' %}"
+                  alt="product image"
+                />
+              </div>
+              <div class="product-btns">
+                <button type="button" class="btn-cart">add to cart</button>
+                <button type="button" class="btn-buy">
+                  <a
+                    href=""
+                    >buy now</a
+                  >
+                  <span><i class="fas fa-shopping-cart"></i></span>
+                </button>
+              </div>
+            </div>
+
+            <div class="product-info">
+              <div class="product-info-top">
+                <h2 class="sm-title">Home and Kitchen</h2>
+                <div class="rating">
+                  <span><i class="fas fa-star"></i></span>
+                  <span><i class="fas fa-star"></i></span>
+                  <span><i class="fas fa-star"></i></span>
+                  <span><i class="fas fa-star"></i></span>
+                  <span><i class="far fa-star"></i></span>
+                </div>
+              </div>
+              <a href="#" class="product-name"
+                >Upcycled beer bottle eucalyptus soy wax candle</a
+              >
+              <p class="product-price">$ 150.00</p>
+              <p class="product-price">$ 133.00</p>
+            </div>
+
+            <div class="off-info">
+              <h2 class="sm-title">25% off</h2>
+            </div>
+          </div>
+          <!-- end of single product -->
+        </div>
+      </div>
+    </div>
+    {% endblock %}
+    {% block js %}
+    <script src="{% static 'js/product_view_page.js' %}"></script>
+    {% endblock %}
