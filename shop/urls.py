@@ -19,4 +19,7 @@ urlpatterns = [
     path('orders/', orders, name='orders'),
     path('signup/', signup , name='signup'),
     path('order-detail/<str:order_id>', order_details, name='orderdetail'),
+    path('postmanproduct/<str:product_slug>', ProductView.as_view(), name='postmanproduct'),
+    path('loginview/', LoginView.as_view(), name='loginview'),
+    path('deleteproduct/', DeleteView.as_view(), name='deleteproduct'),
 ]

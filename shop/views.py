@@ -5,7 +5,7 @@ from rest_framework.views import APIView
 from datetime import datetime
 from .models import *
 
-# Create your views here.
+# Create your views here.   
 def check_login(request):
     if not request.user.is_authenticated:
         return redirect('login')
@@ -134,3 +134,39 @@ def order_details(request, order_id):
     order = Order.objects.get(id=int(order_id))
     items = order.items.all()
     return render(request, 'order_details.html', {'order': order, 'items': items})
+
+class ProductView(APIView):
+    def get(self, request, product_slug):
+        qty = int(request.data.get('qty'))
+        product = Item.objects.get(slug=product_slug)
+        product_dict = {
+            'id': product.id,
+            'name': product.title,
+            'price': product.price,
+            'discount_price': product.discount_price,
+            'slug': product.slug,
+            'description': product.description,
+            'category': product.category,
+            'image': product.image.url,
+        }
+        # ItemInventory.objects.create(item=product, quantity=qty, user=request.user)
+        return Response({'product': product_dict, 'qty': qty})
+
+class LoginView(APIView):
+    def post(self, request):
+        print(request.data)
+        username = request.data.get('username')
+        password = request.data.get('password')
+        print(username, password)
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            return Response({'message': 'Login Successful'})
+        else:
+            return Response({'message': 'Invalid Credentials'})
+
+class DeleteView(APIView):
+    def delete(self, request):
+        id = int(request.data.get('id'))
+        item = ItemInventory.objects.get(id=id)
+        item.delete()
+        return Response({'message': 'Item deleted from cart'})
