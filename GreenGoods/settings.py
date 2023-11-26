@@ -92,11 +92,14 @@ WSGI_APPLICATION = 'GreenGoods.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'HOST': 'viaduct.proxy.rlwy.net',
+        'PASSWORD': 'A3F13Ec33AcECaDE5-6f42gAbc5gdBAE',
+        'USER': 'postgres',
+        'PORT': '11074',
     }
 }
-DATABASES['default'] = dj_database_url.config()
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
