@@ -22,4 +22,5 @@ urlpatterns = [
     path('postmanproduct/<str:product_slug>', ProductView.as_view(), name='postmanproduct'),
     path('loginview/', LoginView.as_view(), name='loginview'),
     path('deleteproduct/', DeleteView.as_view(), name='deleteproduct'),
+    path('save_order/', save_order, name='save_order'),
 ]

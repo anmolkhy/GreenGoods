@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 from django.contrib.auth.models import AbstractUser
 from django.db.models.fields import CharField
 from django.db.models.fields.related import ForeignKey
@@ -50,7 +51,10 @@ class Order(models.Model):
     id = models.AutoField(primary_key=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     items = models.ManyToManyField(ItemInventory)
-    ordered_date = models.DateTimeField()
+    # ordered_date = models.DateTimeField()
+    ordered_date = models.DateTimeField(default=timezone.now)
     price = models.FloatField()
     def __str__(self):
         return self.user.username
+
+

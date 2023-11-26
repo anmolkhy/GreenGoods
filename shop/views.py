@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, login, logout, get_user_model
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from datetime import datetime
 from .models import *
+from django.utils.timezone import make_aware
 
 # Create your views here.   
 def check_login(request):
@@ -95,25 +96,52 @@ def delete(request, item):
     item.delete()
     return redirect('cart')
 
+# def signup(request):
+#     if request.method == "POST":
+#         #code for signup
+#         username = request.POST['username'] 
+#         email = request.POST['email']
+#         password = request.POST['password']
+#         confirmpassword = request.POST['confirmpassword']
+#         if password != confirmpassword:
+#             return render(request, 'signup.html', {'message': 'Passwords do not match'})
+#         #check if username already exists
+#         if User.objects.filter(username=username).exists():
+#             return render(request, 'signup.html', {'message': 'Username already exists'})
+#         #check if email already exists
+#         if User.objects.filter(email=email).exists():
+#             return render(request, 'signup.html', {'message': 'Email already exists'})
+#         user = User.objects.create_user(username, email, password)
+#         user.save()
+#         return redirect('login')
+#     return render(request, 'signup.html')
+
 def signup(request):
     if request.method == "POST":
-        #code for signup
+        User = get_user_model()
+        # Code for signup
         username = request.POST['username'] 
         email = request.POST['email']
         password = request.POST['password']
         confirmpassword = request.POST['confirmpassword']
         if password != confirmpassword:
             return render(request, 'signup.html', {'message': 'Passwords do not match'})
-        #check if username already exists
+        
+        # Check if username already exists
         if User.objects.filter(username=username).exists():
             return render(request, 'signup.html', {'message': 'Username already exists'})
-        #check if email already exists
+        
+        # Check if email already exists
         if User.objects.filter(email=email).exists():
             return render(request, 'signup.html', {'message': 'Email already exists'})
-        user = User.objects.create_user(username, email, password)
+        
+        # Create the user using the custom user model
+        user = User.objects.create_user(username=username, email=email, password=password)
         user.save()
         return redirect('login')
+    
     return render(request, 'signup.html')
+
 
 def logoutuser(request):
     logout(request)
@@ -170,3 +198,4 @@ class DeleteView(APIView):
         item = ItemInventory.objects.get(id=id)
         item.delete()
         return Response({'message': 'Item deleted from cart'})
+    

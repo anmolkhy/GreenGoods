@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+from django.utils import timezone
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +26,7 @@ SECRET_KEY = 'django-insecure-etpe_@y^%96^q8)kadq0q-u+9vi*-017y-%a(y-oky+9t)it&p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['.vercel.app']
 
 AUTH_USER_MODEL = 'shop.User'
 
@@ -150,3 +151,10 @@ LOGOUT_URL = 'logout'
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '763293219718-um08r4ul4mrnuj0750gftvni2fnrtnfq.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'    
+
+
+# Set your desired timezone
+TIME_ZONE = 'UTC'  # Change this to your timezone, e.g., 'America/New_York'
+
+# Ensure that Django uses timezone-aware datetimes
+USE_TZ = True
