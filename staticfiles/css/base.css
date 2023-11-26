@@ -1,0 +1,354 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@200;300;400;500;700&display=swap');
+/* import Poppins font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
+/* import signika */
+@import url('https://fonts.googleapis.com/css2?family=Signika:wght@100;200;300;400;500;600;700;800&display=swap');
+/* import Pacifico */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+html{
+    scroll-behavior: smooth;
+}
+
+body {
+    transition: 0.3s ease-in-out;
+    font-family: Signika;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    font-family: Signika;
+    font-weight:500;
+    font-size: 20px;
+    background: #227074;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+    position: relative;
+    top: auto;
+}
+
+.bi{
+    font-size: 20px;
+}
+
+.navbar .logo img {
+    display: none;
+}
+
+.navbar-visible .logo img {
+    display: block;
+    height: 60px;
+    margin: 5px 40px;
+}
+
+.navbar.sticky {
+    position: sticky;
+  top: 0;
+}
+
+.navbar-visible {
+    transition: 0.3s ease-in-out;
+  opacity: 1;
+  height: 65px;
+}
+
+nav .logo{
+    margin: 0 2rem;
+    font-family: Pacifico;
+    text-decoration: none;
+    font-size: 1.7rem;
+    color: limegreen;
+}
+
+.menu-icon {
+    cursor: pointer;
+    display: none;
+    font-size: 20px;
+}
+
+.menu {
+    list-style-type: none;
+    margin: 0;
+    margin-right: 15px;
+    padding: 0;
+    display: flex;
+}
+
+.menu li {
+    position: relative;
+}
+
+.menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 0 25px;
+}
+
+.menu .submenu {
+    padding: 0.5rem;
+    list-style-type: none;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #227074;
+    font-family: Signika;
+    font-weight: 300;
+    font-size: 19px;
+    width: max-content;
+    max-width: 250%;
+    z-index: 1;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    /* margin-top: 0.5rem; */
+}
+
+.menu .submenu li {
+    opacity: 0.6;
+    transition: all 0.3s ease;
+}
+
+.menu .submenu li:hover {
+    opacity: 1;
+    padding-left: 8px;
+}
+
+.menu .submenu hr {
+    margin: 0 0;
+    border: 0.5px solid #e91e63;
+}
+
+.menu .submenu li a {
+    padding: 5px 15px;
+}
+
+.menu .dropdown:hover > .submenu {
+    display: block;
+}
+
+.footer {
+    font-family: Signika ;
+    padding: 20px 30px;
+    background: #227074;
+}
+.footer-container {
+    margin: auto;
+}
+
+.row {
+    display: flex;
+    flex-wrap: grid;
+    justify-content: space-evenly;
+    height: 100%;
+}
+
+.footer-col {
+    flex: 1;
+    width: 50%;
+    padding: 0 15px;
+}
+
+.col-content {
+    height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.footer-col h4 {
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: #fff;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.footer-col h4::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px; 
+    height: 2.5px;
+    width: 50px;
+    box-sizing: border-box;
+    background: #fbd5c0;
+}
+
+.footer-col ul li:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a,
+.footer-col p {
+    color: #fff;
+    font-weight: 300;
+    display: block;
+    opacity: 0.6;
+    transition: all 0.3s ease;
+    margin-top: 0;
+}
+
+.footer-col ul li a:hover,
+.footer-col p:hover {
+    opacity: 1;
+    padding-left: 8px;
+}
+
+.social-links a {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    margin: 0 3px;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.2);
+    transition: all 0.25s;
+}
+
+iframe{
+    width: 100%;
+    border: none;
+    /* margin-bottom: 2rem; */
+    height: 100%;
+}
+
+.social-links a:hover {
+    transform: scale(1.15);
+    color: #24262b;
+    background: #fff;
+}
+
+.center-info i {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    margin: 0 3px;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.2);
+    transition: all 0.25s;
+}
+
+.center-info i:hover {
+    transform: scale(1.15);
+    color: #24262b;
+    background: #fff;
+}
+
+.center-info a{
+    font-family: Signika;
+    font-weight: 200;
+    text-decoration: none;
+    color: #fff;
+}
+
+.contact{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.center-info{
+    flex: 1;
+    color: #fff;
+}
+
+@media(max-width: 574px) {
+    .footer-col {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block;
+    }
+
+    .menu {
+        flex-direction: column;
+        display: none;
+        text-align: center;
+    }
+
+    .menu li {
+        width: 100%;
+    }
+
+    .menu li a {
+        border-bottom: 1px solid #777;
+    }
+
+    #menu-toggle:checked + .menu {
+        display: flex;
+    }
+
+    .footer-col {
+        width: 50%;
+        margin-bottom: 30px;
+    }
+}
+
+.footer-bottom{
+    margin: 0;
+}
+
+.footer-bottom p{
+    margin-bottom: 0;
+    color: white;
+    opacity: 0.6;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  width: 400px;
+  border: 2px solid #ccc;
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for the search input */
+.search-input {
+  flex: 1;
+  padding: 0 16px;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 16px;
+  color: white;
+}
+
+.search-input::placeholder{
+    font-family: Signika;
+    opacity: 0.5;
+    color: white;
+}
+/* Styling for the search button */
+.search-button {
+  background: transparent; /* Replace with your desired button color */
+  border: none;
+  color: white;
+  padding: 7px 15px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.search-button:hover {
+  background: transparent; /* Replace with a darker shade or a different color on hover */
+}
