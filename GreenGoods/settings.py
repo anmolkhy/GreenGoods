@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-etpe_@y^%96^q8)kadq0q-u+9vi*-017y-%a(y-oky+9t)it&p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app']
+ALLOWED_HOSTS = ['.vercel.app', '*']
 
 AUTH_USER_MODEL = 'shop.User'
 
